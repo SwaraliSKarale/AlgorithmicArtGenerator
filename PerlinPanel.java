@@ -48,7 +48,8 @@ public class PerlinPanel extends JPanel {
         return smooth;
     }
 
-    // 
+    // Paints every single 'box', the location is found out by the scale
+    // multiplied by the index of the box and the size is just the scale
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
