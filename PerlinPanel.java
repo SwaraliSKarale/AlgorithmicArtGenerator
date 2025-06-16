@@ -23,12 +23,15 @@ public class PerlinPanel extends JPanel {
         double[][] grid = new double[cols][rows];
         Random rand = new Random();
 
+        // for every single grid value, it generates a double value
         for (int x = 0; x < cols; x++) {
             for (int y = 0; y < rows; y++) {
                 grid[x][y] = rand.nextDouble();
             }
         }
 
+        // Without this bottom chunk of code the perlin terrain looks
+        // jagged and doesn't look smooth/realistic
         double[][] smooth = new double[cols][rows];
         for (int x = 1; x < cols - 1; x++) {
             for (int y = 1; y < rows - 1; y++) {
