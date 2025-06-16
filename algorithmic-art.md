@@ -96,3 +96,7 @@ There is no numeric rubric—extra credit will be based on:
 ## Submission
 
 You’ll demonstrate your project live during class. No formal submission is required unless otherwise requested. Make sure your code is ready to run on demo day.
+
+## Citations:
+https://stackoverflow.com/questions/17440865/using-perlin-noise-to-generate-a-2d-tile-map
+ChatGPT

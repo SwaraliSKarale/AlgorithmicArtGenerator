@@ -1,0 +1,33 @@
+// ChatGPT this part because I really didn't know what to do here
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "AlgorithmicArtGenerator_862d63d7"
+        },
+        {
+            "type": "java",
+            "name": "Run Perlin Noise Terrain",
+            "request": "launch",
+            "mainClass": "TerrainApp",
+            "projectName": "perlin-noise-art"
+        },
+        {
+            "type": "java",
+            "name": "Run Noise Panel Directly",
+            "request": "launch",
+            "mainClass": "NoisePanel",
+            "projectName": "perlin-noise-art"
+        },
+        {
+            "type": "java",
+            "name": "Run Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
