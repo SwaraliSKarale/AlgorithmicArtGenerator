@@ -6,7 +6,7 @@ public class PerlinPanel extends JPanel {
     private static final int WIDTH = 600;
     private static final int HEIGHT = 600;
     private static final int SCALE = 5;
-    private double[][] noiseGrid;
+    private double[][] finalGrid;
 
     public PerlinPanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -14,10 +14,11 @@ public class PerlinPanel extends JPanel {
     }
 
     public void regenerateNoise() {
-        noiseGrid = generateNoise(WIDTH / SCALE, HEIGHT / SCALE);
+        finalGrid = generateNoise(WIDTH / SCALE, HEIGHT / SCALE);
         repaint();
     }
 
+    // Randomize double values for the noise
     private double[][] generateNoise(int cols, int rows) {
         double[][] grid = new double[cols][rows];
         Random rand = new Random();
@@ -44,23 +45,25 @@ public class PerlinPanel extends JPanel {
         return smooth;
     }
 
+    // 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (int x = 0; x < noiseGrid.length; x++) {
-            for (int y = 0; y < noiseGrid[0].length; y++) {
-                g.setColor(getTerrainColor(noiseGrid[x][y]));
+        for (int x = 0; x < finalGrid.length; x++) {
+            for (int y = 0; y < finalGrid[0].length; y++) {
+                g.setColor(getTerrainColor(finalGrid[x][y]));
                 g.fillRect(x * SCALE, y * SCALE, SCALE, SCALE);
             }
         }
     }
 
-    private Color getTerrainColor(double value) {
-        if (value < 0.3) return new Color(0, 0, 180);         // deep water
-        else if (value < 0.4) return new Color(0, 100, 255);  // shallow water
-        else if (value < 0.5) return new Color(240, 240, 100); // beach
-        else if (value < 0.7) return new Color(50, 180, 50);   // grass
-        else if (value < 0.85) return new Color(100, 100, 100); // mountain
+    // Randomizes the color for each box
+    private Color getTerrainColor(double num) {
+        if (num < 0.3) return new Color(0, 0, 180);         // deep water
+        else if (num < 0.4) return new Color(0, 100, 255);  // shallow water
+        else if (num < 0.5) return new Color(240, 240, 100); // beach
+        else if (num < 0.7) return new Color(50, 180, 50);   // grass
+        else if (num < 0.85) return new Color(100, 100, 100); // mountain
         else return Color.WHITE; // snow
     }
 }
